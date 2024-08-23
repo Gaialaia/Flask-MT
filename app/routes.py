@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 from urllib.parse import urlsplit
 
 from flask import render_template, flash, redirect, url_for, request
@@ -7,7 +8,11 @@ from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 import sqlalchemy as sa
 
-
+@app.before_request
+def before_request():
+    if current_user.is_authenticated:
+        current_user.last_seen = datetime.now(timezone.utc)
+        db.session.commit()
 
 @app.route('/')  #decorator
 @app.route('/index')
