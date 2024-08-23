@@ -28,13 +28,14 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    def avatar(self, size):
+        digest = md5(self.email.lower().encode('utf-8')).hexdigest()
+        return f'https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}'
+
+
 @login.user_loader
 def load_user(id):
     return db.session.get(User, int(id))
-
-def avatar(self, size):
-    digest = md5(self.email.lower().endcode('utf-8')).hexdigest()
-    return f'https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}'
 
 
 class Post(db.Model):
