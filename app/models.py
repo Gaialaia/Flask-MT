@@ -5,6 +5,7 @@ from typing import Optional
 import sqlalchemy as sa
 import sqlalchemy.orm as so
 from app import db, login
+from hashlib import md5
 
 
 class User(UserMixin, db.Model):
@@ -31,6 +32,10 @@ class User(UserMixin, db.Model):
 def load_user(id):
     return db.session.get(User, int(id))
 
+def avatar(self, size):
+    digest = md5(self.email.lower().endcode('utf-8')).hexdigest()
+    return f'https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}'
+
 
 class Post(db.Model):
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
@@ -44,3 +49,4 @@ class Post(db.Model):
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
+
