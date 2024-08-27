@@ -37,11 +37,14 @@ def index():
     return render_template('index.html', title='Home', form=form,
                            posts=posts.items, next_url=next_url, prev_url=prev_url)
 
-
+@app.route('/explore')
+@login_required
+def explore():
+    query = sa.select(Post).order_by(Post.timestamp.desc())
+    posts = db.session.scalars(query).all()
+    return render_template('index.html', title='Explore', posts=posts)
 
 @app.route('/login', methods=['GET', 'POST'])
-
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
