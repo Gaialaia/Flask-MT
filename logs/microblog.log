@@ -60,3 +60,4 @@ Traceback (most recent call last):
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.exceptions.BuildError: Could not build url for endpoint '/index'. Did you mean 'index' instead?
 2024-08-28 16:26:45,774 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:45]
+2024-08-28 16:37:25,027 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:47]
