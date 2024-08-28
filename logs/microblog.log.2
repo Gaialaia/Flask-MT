@@ -1,4 +1,5 @@
-2024-08-28 15:48:31,882 ERROR: Exception on /login [POST] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+2024-08-28 15:57:17,269 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:45]
+2024-08-28 15:58:36,280 ERROR: Exception on /login [POST] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
 Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -27,7 +28,7 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.exceptions.BuildError: Could not build url for endpoint '/index'. Did you mean 'index' instead?
-2024-08-28 15:48:34,574 ERROR: Exception on /index [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+2024-08-28 15:59:26,811 ERROR: Exception on /login [POST] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
 Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -41,14 +42,23 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 32, in index
-    per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-KeyError: 'POSTS_PER_PAGE'
-2024-08-28 15:48:36,319 ERROR: Exception on /explore [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 72, in login
+    return redirect(url_for(next_page))
+                    ^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/helpers.py", line 220, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1084, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1073, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint '/index'. Did you mean 'index' instead?
+2024-08-28 16:05:13,148 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:45]
+2024-08-28 16:05:44,075 ERROR: Exception on /login [POST] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
 Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -62,15 +72,23 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 48, in explore
-    per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-KeyError: 'POSTS_PER_PAGE'
-2024-08-28 15:54:12,167 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:45]
-2024-08-28 15:54:23,231 ERROR: Exception on /index [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 72, in login
+    return redirect(url_for(next_page))
+                    ^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/helpers.py", line 220, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1084, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1073, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint '/index'. Did you mean 'index' instead?
+2024-08-28 16:10:08,269 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:45]
+2024-08-28 16:10:27,578 ERROR: Exception on /login [POST] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
 Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -84,52 +102,19 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 32, in index
-    per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-KeyError: 'POSTS_PER_PAGE'
-2024-08-28 15:54:27,433 ERROR: Exception on /explore [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
-Traceback (most recent call last):
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 48, in explore
-    per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-KeyError: 'POSTS_PER_PAGE'
-2024-08-28 15:54:29,934 ERROR: Exception on /explore [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
-Traceback (most recent call last):
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 48, in explore
-    per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-KeyError: 'POSTS_PER_PAGE'
+  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 72, in login
+    return redirect(url_for(next_page))
+                    ^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/helpers.py", line 220, in url_for
+    return current_app.url_for(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1084, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1073, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint '/'. Did you mean 'static' instead?
+2024-08-28 16:13:24,211 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:45]

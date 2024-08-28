@@ -1,4 +1,4 @@
-2024-08-28 13:37:28,967 ERROR: Exception on /explore [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+2024-08-28 13:37:41,148 ERROR: Exception on /explore [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
 Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -40,7 +40,7 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/app/templates/index.html", line 20, in template
     {% endblock %}
 jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'.
-2024-08-28 13:37:32,580 ERROR: Exception on /explore [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+2024-08-28 13:37:44,447 ERROR: Exception on /index [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
 Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -57,9 +57,9 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 40, in explore
-    return render_template('index.html', title='Explore', posts=posts)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 32, in index
+    return render_template('index.html', title='Home', posts=posts)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/templating.py", line 149, in render_template
     template = app.jinja_env.get_or_select_template(template_name_or_list)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -82,7 +82,7 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/app/templates/index.html", line 20, in template
     {% endblock %}
 jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'.
-2024-08-28 13:37:34,871 ERROR: Exception on /explore [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+2024-08-28 13:37:46,202 ERROR: Exception on /index [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
 Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -99,9 +99,9 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 40, in explore
-    return render_template('index.html', title='Explore', posts=posts)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 32, in index
+    return render_template('index.html', title='Home', posts=posts)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/templating.py", line 149, in render_template
     template = app.jinja_env.get_or_select_template(template_name_or_list)
                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

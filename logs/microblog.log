@@ -1,4 +1,4 @@
-2024-08-28 16:13:31,561 ERROR: Exception on /login [POST] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+2024-08-28 17:38:21,090 ERROR: Exception on /reset_password_request [POST] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
 Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,7 +12,53 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 72, in login
+  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 108, in reset_password_request
+    send_password_reset_email(user)
+  File "/home/gaia/PycharmProjects/microblog/app/email.py", line 19, in send_password_reset_email
+    token = user.get_reset_password_token()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/app/models.py", line 98, in get_reset_password_token
+    {'reset_password': self.id, 'exp': time() + expires_in},
+                                       ^^^^
+NameError: name 'time' is not defined. Did you forget to import 'time'
+2024-08-28 17:40:03,062 ERROR: Exception on /reset_password_request [POST] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+Traceback (most recent call last):
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 108, in reset_password_request
+    send_password_reset_email(user)
+  File "/home/gaia/PycharmProjects/microblog/app/email.py", line 19, in send_password_reset_email
+    token = user.get_reset_password_token()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/app/models.py", line 98, in get_reset_password_token
+    {'reset_password': self.id, 'exp': time() + expires_in},
+                                       ^^^^
+NameError: name 'time' is not defined. Did you forget to import 'time'
+2024-08-28 17:40:47,720 ERROR: Exception on /login [POST] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+Traceback (most recent call last):
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 75, in login
     return redirect(url_for(next_page))
                     ^^^^^^^^^^^^^^^^^^
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/helpers.py", line 220, in url_for
@@ -27,75 +73,3 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
     raise BuildError(endpoint, values, method, self)
 werkzeug.routing.exceptions.BuildError: Could not build url for endpoint '/index'. Did you mean 'index' instead?
-2024-08-28 16:17:50,905 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:45]
-2024-08-28 16:19:15,802 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:45]
-2024-08-28 16:24:55,054 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:45]
-2024-08-28 16:25:20,839 ERROR: Exception on /login [POST] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
-Traceback (most recent call last):
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 72, in login
-    return redirect(url_for(next_page))
-                    ^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/helpers.py", line 220, in url_for
-    return current_app.url_for(
-           ^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1084, in url_for
-    return self.handle_url_build_error(error, endpoint, values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1073, in url_for
-    rv = url_adapter.build(  # type: ignore[union-attr]
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint '/index'. Did you mean 'index' instead?
-2024-08-28 16:26:45,774 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:45]
-2024-08-28 16:37:25,027 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:47]
-2024-08-28 17:18:42,256 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:47]
-2024-08-28 17:21:31,962 ERROR: Exception on /reset_password_request [POST] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
-Traceback (most recent call last):
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 106, in reset_password_request
-    send_password_reset_email(user)
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-NameError: name 'send_password_reset_email' is not defined
-2024-08-28 17:21:50,377 ERROR: Exception on /reset_password_request [POST] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
-Traceback (most recent call last):
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 106, in reset_password_request
-    send_password_reset_email(user)
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-NameError: name 'send_password_reset_email' is not defined
-2024-08-28 17:25:04,035 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:47]
