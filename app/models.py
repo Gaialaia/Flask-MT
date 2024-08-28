@@ -87,6 +87,7 @@ class User(UserMixin, db.Model):
             .order_by(Post.timestamp.desc())
         )
 
+
 @login.user_loader
 def load_user(id):
     return db.session.get(User, int(id))
