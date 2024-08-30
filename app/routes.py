@@ -5,12 +5,13 @@ from app.email import send_password_reset_email
 from app.forms import PostForm, ResetPasswordRequestForm, ResetPasswordForm
 from app.models import Post
 
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request,g
 from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, EmptyForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 import sqlalchemy as sa
+from flask_babel import get_locale
 
 
 @app.before_request
@@ -18,6 +19,7 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.now(timezone.utc)
         db.session.commit()
+        g.locale = str(get_locale())
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
@@ -72,7 +74,7 @@ def login():
         next_page = request.args.get('next')
         if not next_page or urlsplit(next_page).netloc != '':
             next_page = url_for('index')
-        return redirect(url_for(next_page))
+        return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
 
@@ -128,14 +130,21 @@ def reset_password(token):
 
 @app.route('/user/<username>')
 @login_required
+
 def user(username):
     user = db.first_or_404(sa.select(User).where(User.username == username))
-    posts = [
-        {'author': user, 'body': 'Test post #1'},
-        {'author': user, 'body': 'Test post #12'}
-    ]
+    page = request.args.get('page', 1, type=int)
+    query = user.posts.select().order_by(Post.timestamp.desc())
+    posts = db.paginate(query, page=page,
+                    per_page=app.config['POSTS_PER_PAGE'],
+                    error_out=False)
+    next_url = url_for('user', username=user.username, page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('user', username=user.username, page=posts.prev_num) \
+        if posts.has_prev else None
     form = EmptyForm()
-    return render_template('user.html', user=user, posts=posts,form=form)
+    return render_template('user.html', user=user, posts=posts.items,
+                       next_url=next_url, prev_url=prev_url, form=form)
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
