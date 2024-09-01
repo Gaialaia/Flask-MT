@@ -1,33 +1,4 @@
-2024-08-28 15:47:55,819 ERROR: Exception on /login [POST] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
-Traceback (most recent call last):
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 72, in login
-    return redirect(url_for(next_page))
-                    ^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/helpers.py", line 220, in url_for
-    return current_app.url_for(
-           ^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1084, in url_for
-    return self.handle_url_build_error(error, endpoint, values)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1073, in url_for
-    rv = url_adapter.build(  # type: ignore[union-attr]
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/werkzeug/routing/map.py", line 924, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.exceptions.BuildError: Could not build url for endpoint '/'. Did you mean 'static' instead?
-2024-08-28 15:47:58,188 ERROR: Exception on /index [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+2024-09-01 17:11:38,470 ERROR: Exception on /user/Zhenya [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
 Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -44,11 +15,41 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 32, in index
-    per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-KeyError: 'POSTS_PER_PAGE'
-2024-08-28 15:48:01,556 ERROR: Exception on /index [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 138, in user
+    return render_template('user.html', user=user, posts=posts,form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/gaia/PycharmProjects/microblog/app/templates/user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/gaia/PycharmProjects/microblog/app/templates/base.html", line 58, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/app/templates/user.html", line 35, in block 'content'
+    {% include '_post.html' %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/app/templates/_post.html", line 13, in top-level template code
+    said {{ moment(post.timestamp).fromNow() }}:
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_moment/__init__.py", line 237, in fromNow
+    return self._render("fromNow", no_suffix=int(no_suffix),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_moment/__init__.py", line 194, in _render
+    t = self._timestamp_as_iso_8601(self.timestamp)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_moment/__init__.py", line 190, in _timestamp_as_iso_8601
+    return timestamp.strftime('%Y-%m-%dT%H:%M:%S' + tz)
+           ^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'timestamp'
+2024-09-01 17:11:40,627 ERROR: Exception on /user/Zhenya [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
 Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -65,70 +66,37 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 32, in index
-    per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-KeyError: 'POSTS_PER_PAGE'
-2024-08-28 15:48:03,234 ERROR: Exception on /explore [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
-Traceback (most recent call last):
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 48, in explore
-    per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-KeyError: 'POSTS_PER_PAGE'
-2024-08-28 15:48:20,148 ERROR: Exception on /explore [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
-Traceback (most recent call last):
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 48, in explore
-    per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-KeyError: 'POSTS_PER_PAGE'
-2024-08-28 15:48:23,021 ERROR: Exception on /index [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
-Traceback (most recent call last):
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-         ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 32, in index
-    per_page=app.config['POSTS_PER_PAGE'], error_out=False)
-             ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
-KeyError: 'POSTS_PER_PAGE'
+  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 138, in user
+    return render_template('user.html', user=user, posts=posts,form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 1304, in render
+    self.environment.handle_exception()
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 939, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/home/gaia/PycharmProjects/microblog/app/templates/user.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/home/gaia/PycharmProjects/microblog/app/templates/base.html", line 58, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/app/templates/user.html", line 35, in block 'content'
+    {% include '_post.html' %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/app/templates/_post.html", line 13, in top-level template code
+    said {{ moment(post.timestamp).fromNow() }}:
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_moment/__init__.py", line 237, in fromNow
+    return self._render("fromNow", no_suffix=int(no_suffix),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_moment/__init__.py", line 194, in _render
+    t = self._timestamp_as_iso_8601(self.timestamp)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_moment/__init__.py", line 190, in _timestamp_as_iso_8601
+    return timestamp.strftime('%Y-%m-%dT%H:%M:%S' + tz)
+           ^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'timestamp'
