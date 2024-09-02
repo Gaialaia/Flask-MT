@@ -12,7 +12,7 @@ class Config:
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['dzhayadzoy@gmail.com']
-    LANGUAGES = ['rus', 'en', 'es']
+    LANGUAGES = ['ru', 'en', 'es']
 
     POSTS_PER_PAGE = 3
 

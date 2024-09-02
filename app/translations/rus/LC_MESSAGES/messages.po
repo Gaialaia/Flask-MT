@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-02 13:07+0500\n"
+"POT-Creation-Date: 2024-09-02 15:55+0500\n"
 "PO-Revision-Date: 2024-09-02 12:47+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru_RU\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#: app/__init__.py:23
+#: app/__init__.py:24
 msgid "Please log in to access this page."
 msgstr "Пожалуйста, войдите, чтобы получить доступ к странице"
 
@@ -51,7 +51,7 @@ msgstr "Почта"
 msgid "Repeat Password"
 msgstr "Повторите пароль"
 
-#: app/forms.py:26 app/routes.py:98
+#: app/forms.py:26 app/routes.py:98 app/templates/register.html:5
 msgid "Register"
 msgstr "Регистрация"
 
@@ -103,7 +103,7 @@ msgstr "Поздравляю, ты зарегистрировался!"
 msgid "Check your email for the instructions to reset your password"
 msgstr "На почту высланы инструкции по смене пароля"
 
-#: app/routes.py:115
+#: app/routes.py:115 app/templates/reset_password_request.html:5
 msgid "Reset Password"
 msgstr "Сменить пароль"
 
