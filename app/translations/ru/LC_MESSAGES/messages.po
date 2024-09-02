@@ -1,4 +1,4 @@
-# Russian (Russia) translations for PROJECT.
+# Russian translations for PROJECT.
 # Copyright (C) 2024 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-09-02 15:55+0500\n"
-"PO-Revision-Date: 2024-09-02 12:47+0500\n"
+"POT-Creation-Date: 2024-09-02 16:00+0500\n"
+"PO-Revision-Date: 2024-09-02 13:46+0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: ru_RU\n"
-"Language-Team: ru_RU <LL@li.org>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "MIME-Version: 1.0\n"
@@ -25,11 +25,11 @@ msgstr "Пожалуйста, войдите, чтобы получить дос
 
 #: app/email.py:21
 msgid "[Microblog] Reset Your Password"
-msgstr "[Microblog] Изменить пароль"
+msgstr "[Microblog] Сменить пароль"
 
 #: app/forms.py:13 app/forms.py:20 app/forms.py:55
 msgid "Username"
-msgstr "Имя пользователя"
+msgstr "Пользователь"
 
 #: app/forms.py:14 app/forms.py:22 app/forms.py:47
 msgid "Password"
@@ -45,7 +45,7 @@ msgstr "Войти"
 
 #: app/forms.py:21 app/forms.py:42
 msgid "Email"
-msgstr "Почта"
+msgstr "Электронная почта"
 
 #: app/forms.py:24 app/forms.py:49
 msgid "Repeat Password"
@@ -122,7 +122,7 @@ msgstr "Редактировать профиль"
 #: app/routes.py:177 app/routes.py:198
 #, python-format
 msgid "User %(username)s not found."
-msgstr "Пользователь %(username)s не найден."
+msgstr "Пользователь %(username)s не найден"
 
 #: app/routes.py:180
 msgid "You cannot follow yourself!"
@@ -140,7 +140,7 @@ msgstr "Нельзя отписаться от своего профиля!"
 #: app/routes.py:205
 #, python-format
 msgid "You are not following %(username)s."
-msgstr "Вы не подписаны на %(username)s."
+msgstr "Вы не подписаны %(username)s!"
 
 #: app/templates/404.html:4
 msgid "File Not Found"
@@ -156,7 +156,7 @@ msgstr "Произошла непредвиденная ошибка"
 
 #: app/templates/500.html:5
 msgid "The administrator has been notified. Sorry for the inconvenience!"
-msgstr "Администатор в курсе. Приносим извинения за неудобства"
+msgstr "Администатор осведомлён. Приносим извинения за неудобства\""
 
 #: app/templates/_post.html:14
 #, python-format
@@ -166,15 +166,15 @@ msgstr "%(username)s сказал %(when)s"
 #: app/templates/index.html:5
 #, python-format
 msgid "Hi, %(username)s!"
-msgstr "Привет!, %(username)s!"
+msgstr "Здорово, %(username)s"
 
 #: app/templates/index.html:16 app/templates/user.html:41
 msgid "Newer posts"
-msgstr "Новые"
+msgstr "Новые записи"
 
 #: app/templates/index.html:21 app/templates/user.html:46
 msgid "Older posts"
-msgstr "Поздние"
+msgstr "Старые записи"
 
 #: app/templates/login.html:7
 msgid "New User?"
@@ -194,7 +194,7 @@ msgstr "Нажми, чтобы изменить пароль"
 
 #: app/templates/reset_password.html:5
 msgid "Reset Your Password"
-msgstr "Сменить пароль"
+msgstr "Изменить пароль"
 
 #: app/templates/user.html:8
 msgid "User"
@@ -202,7 +202,7 @@ msgstr "Пользователь"
 
 #: app/templates/user.html:11
 msgid "Last seen on"
-msgstr "Последний раз был"
+msgstr "Последний визит"
 
 #: app/templates/user.html:13
 #, python-format
@@ -212,7 +212,7 @@ msgstr "%(count)d подписчиков"
 #: app/templates/user.html:13
 #, python-format
 msgid "%(count)d following"
-msgstr "(count)d подписан"
+msgstr "подписан на %(count)d пользователей"
 
 #: app/templates/user.html:15
 msgid "Edit your profile"
