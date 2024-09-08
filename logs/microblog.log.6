@@ -1,4 +1,4 @@
-2024-09-01 17:15:12,967 ERROR: Exception on /user/Matrena [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+2024-09-02 12:05:02,499 ERROR: Exception on /register [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
 Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,44 +12,34 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 138, in user
-    return render_template('user.html', user=user, posts=posts,form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 1304, in render
-    self.environment.handle_exception()
+  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 98, in register
+    return render_template('register.html', title=_('Register'), form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 939, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/home/gaia/PycharmProjects/microblog/app/templates/user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/gaia/PycharmProjects/microblog/app/templates/base.html", line 58, in top-level template code
-    {% block content %}{% endblock %}
+  File "/home/gaia/PycharmProjects/microblog/app/templates/register.html", line 5, in template
+    <h1>{{ _(Register)_ }}</h1>
     ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/templates/user.html", line 35, in block 'content'
-    {% include '_post.html' %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/templates/_post.html", line 13, in top-level template code
-    said {{ moment(post.timestamp).fromNow() }}:
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_moment/__init__.py", line 237, in fromNow
-    return self._render("fromNow", no_suffix=int(no_suffix),
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_moment/__init__.py", line 194, in _render
-    t = self._timestamp_as_iso_8601(self.timestamp)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_moment/__init__.py", line 190, in _timestamp_as_iso_8601
-    return timestamp.strftime('%Y-%m-%dT%H:%M:%S' + tz)
-           ^^^^^^^^^^^^^^^^^^
-jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'timestamp'
-2024-09-01 17:15:14,679 ERROR: Exception on /user/Matrena [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '_'
+2024-09-02 12:05:37,335 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:55]
+2024-09-02 12:05:44,610 ERROR: Exception on /register [GET] [in /home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py:838]
 Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
@@ -63,40 +53,35 @@ Traceback (most recent call last):
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/app.py", line 865, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 138, in user
-    return render_template('user.html', user=user, posts=posts,form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
-    return _render(app, template, context)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/templating.py", line 131, in _render
-    rv = template.render(context)
-         ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 1304, in render
-    self.environment.handle_exception()
+  File "/home/gaia/PycharmProjects/microblog/app/routes.py", line 98, in register
+    return render_template('register.html', title=_('Register'), form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask/templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 1084, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 1013, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 972, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
   File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/jinja2/environment.py", line 939, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/home/gaia/PycharmProjects/microblog/app/templates/user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/gaia/PycharmProjects/microblog/app/templates/base.html", line 58, in top-level template code
-    {% block content %}{% endblock %}
+  File "/home/gaia/PycharmProjects/microblog/app/templates/register.html", line 5, in template
+    <h1>{{ _('Register')_ }}</h1>
     ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/templates/user.html", line 35, in block 'content'
-    {% include '_post.html' %}
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/app/templates/_post.html", line 13, in top-level template code
-    said {{ moment(post.timestamp).fromNow() }}:
-    ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_moment/__init__.py", line 237, in fromNow
-    return self._render("fromNow", no_suffix=int(no_suffix),
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_moment/__init__.py", line 194, in _render
-    t = self._timestamp_as_iso_8601(self.timestamp)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/gaia/PycharmProjects/microblog/.venv/lib/python3.12/site-packages/flask_moment/__init__.py", line 190, in _timestamp_as_iso_8601
-    return timestamp.strftime('%Y-%m-%dT%H:%M:%S' + tz)
-           ^^^^^^^^^^^^^^^^^^
-jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'timestamp'
+jinja2.exceptions.TemplateSyntaxError: expected token 'end of print statement', got '_'
+2024-09-02 12:06:50,184 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:55]
+2024-09-02 12:31:30,850 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:55]
+2024-09-02 12:36:30,847 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:55]
+2024-09-02 12:37:38,366 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:57]
+2024-09-02 12:38:38,146 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:57]
+2024-09-02 13:07:55,109 INFO: Microblog startup [in /home/gaia/PycharmProjects/microblog/app/__init__.py:54]

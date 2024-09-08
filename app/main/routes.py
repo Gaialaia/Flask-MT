@@ -8,7 +8,6 @@ from langdetect import detect, LangDetectException
 from app import db
 from app.main.forms import EditProfileForm, EmptyForm, PostForm
 from app.models import User, Post
-from app.translate import translate
 from app.main import bp
 
 
@@ -142,11 +141,3 @@ def unfollow(username):
     else:
         return redirect(url_for('main.index'))
 
-
-@bp.route('/translate', methods=['POST'])
-@login_required
-def translate_text():
-    data = request.get_json()
-    return {'text': translate(data['text'],
-                              data['source_language'],
-                              data['dest_language'])}
